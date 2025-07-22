@@ -1,57 +1,89 @@
-<<<<<<< HEAD
-import React from "react";
-import './style.css';
-import ChatScreen from "./Screen/ChatScreen";
 
-function App() {
-  return <ChatScreen />;
-=======
+// App.jsx
 import React, { useState } from "react";
-import './style.css';
-import Login from "./Login";
-import Chat from "./Chat";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import LoginScreen from "./Screen/LoginScreen";
+import ContactScreen from "./Screen/ContactScreen/ContactScreen";
+import ChatScreen from "./Screen/ChatScreen";
+import "./style.css";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [messages, setMessages] = useState([
-    { id: 1, text: 'Hola! ¿Cómo estás?', sender: 'otro' },
-    { id: 2, text: 'Todo bien, ¿y vos?', sender: 'yo' },
-  ]);
+  const [contactoActivo, setContactoActivo] = useState(null);
+  const [mensajesPorContacto, setMensajesPorContacto] = useState({});
 
-  const handleLogin = (password) => {
-    if (password === "1234") {
-      setIsAuthenticated(true);
-    } else {
-      alert("Clave incorrecta");
-    }
+  const handleLogin = () => setIsAuthenticated(true);
+
+  const handleSeleccionarContacto = (contacto) => {
+    setContactoActivo(contacto);
   };
 
-  const handleSend = (text) => {
-    const newMessage = {
-      id: messages.length + 1,
-      text,
-      sender: 'yo',
+  const handleEnviarMensaje = (mensajeTexto) => {
+    if (!contactoActivo) return;
+
+    const contactoId = contactoActivo.id;
+    const nuevoId = Date.now();
+    const mensajeUsuario = { id: nuevoId, text: mensajeTexto, sender: "yo" };
+    const mensajeAuto = {
+      id: nuevoId + 1,
+      text: "Gracias por tu mensaje. En breve te respondo.",
+      sender: "auto",
     };
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
 
-    setTimeout(() => {
-      setMessages((prevMessages) => {
-        const respuesta = {
-          id: prevMessages.length + 1,
-          text: "Respuesta automática simulada 👋",
-          sender: "auto"
-        };
-        return [...prevMessages, respuesta];
-      });
-    }, 1000);
+    setMensajesPorContacto((prev) => {
+      const mensajesAnteriores = prev[contactoId] || [];
+      return {
+        ...prev,
+        [contactoId]: [...mensajesAnteriores, mensajeUsuario, mensajeAuto],
+      };
+    });
   };
 
-  if (!isAuthenticated) {
-    return <Login onLogin={handleLogin} />;
-  }
+  const handleEliminarMensaje = (id) => {
+    if (!contactoActivo) return;
+    const contactoId = contactoActivo.id;
+    setMensajesPorContacto((prev) => {
+      const mensajesFiltrados = prev[contactoId].filter((msg) => msg.id !== id);
+      return {
+        ...prev,
+        [contactoId]: mensajesFiltrados,
+      };
+    });
+  };
 
-  return <Chat messages={messages} onSend={handleSend} />;
->>>>>>> 0ff36649e45e2d8268bb7e2042ab68802dbed2b6
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginScreen onLogin={handleLogin} />} />
+        <Route
+          path="/contactos"
+          element={
+            isAuthenticated ? (
+              <div className="main-layout">
+                <ContactScreen onSeleccionar={handleSeleccionarContacto} />
+                {contactoActivo ? (
+                  <ChatScreen
+                    contacto={contactoActivo}
+                    mensajes={mensajesPorContacto[contactoActivo.id] || []}
+                    onEnviarMensaje={handleEnviarMensaje}
+                    onEliminarMensaje={handleEliminarMensaje}
+                  />
+                ) : (
+                  <div className="chat-screen">
+                    <p style={{ margin: "auto", fontStyle: "italic" }}>
+                      Selecciona un contacto para iniciar una conversación.
+                    </p>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

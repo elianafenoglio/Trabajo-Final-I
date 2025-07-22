@@ -1,19 +1,38 @@
-<<<<<<< HEAD
-
+/* ===== GENERAL ===== */
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
 }
 
-.message {
-  max-width: 75%;
+/* ===== LAYOUT PRINCIPAL ===== */
+.main-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.contact-screen {
+  flex: 1;
+  max-width: 300px;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+  background-color: #f9f9f9;
   padding: 10px;
-  border-radius: 15px;
-  font-size: 14px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
+.chat-screen {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  padding: 10px;
+  overflow: hidden;
+}
+
+/* ===== LISTA DE MENSAJES ===== */
 .message-list {
   flex: 1;
   padding: 10px;
@@ -23,12 +42,56 @@ body {
   overflow-y: auto;
 }
 
+/* ===== MENSAJES ===== */
+.message {
+  max-width: 70%;
+  padding: 0.6rem 1rem;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.sent,
+.derecha {
+  align-self: flex-end;
+  background-color: #dcf8c6; /* estilo WhatsApp */
+  text-align: right;
+}
+
+.received,
+.izquierda {
+  align-self: flex-start;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+/* ===== RESPUESTA AUTOMÁTICA ===== */
+.auto-response {
+  align-self: flex-start;
+  background-color: #cce5ff;
+  color: #003366;
+  font-style: italic;
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+}
+
+/* ===== INPUT MENSAJE ===== */
+.message-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f8f8f8;
+}
+
 .message-input input {
   flex: 1;
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
   outline: none;
+  font-size: 1rem;
 }
 
 .message-input button {
@@ -41,53 +104,22 @@ body {
   cursor: pointer;
 }
 
-
-.auto-response {
-  align-self: flex-start;
-  background-color: #cce5ff; /* celeste claro */
-  color: #003366;
-  font-style: italic;
+/* ===== BOTÓN ELIMINAR ===== */
+.btn-eliminar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 1rem;
+  color: #a00;
 }
 
-
-.sent {
-  align-self: flex-end;
-  background-color: #dcf8c6; /* verde claro WhatsApp */
-  /* border-top-right-radius: 4px;  /* asimétrico */
-  /* color: black;*/
+.btn-eliminar:hover {
+  color: red;
 }
 
-.received {
-  align-self: flex-start;
-  background-color: #ffffff;
-  border-top-left-radius: 4px;   /* asimétrico */
-  color: black;}
-
-  .chat-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* centra horizontal */
-    align-items: center;     /* centra vertical */
-    background-color: #f1f1f1;
-  }
-  
-  .chat-box {
-    width: 380px;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow: hidden;
-  }
-  
-
-
-  /**********************************************************/
-  .login-wrapper {
+/* ===== LOGIN ===== */
+.login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,23 +127,15 @@ body {
   background-color: #f3f4f6;
 }
 
-.login-container {
+.login-container,
+.login-box {
   background-color: white;
-  padding: 2rem 2.5rem;
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
   max-width: 400px;
-  text-align: center;
-}
-
-.login-box {
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 300px;
+  width: 100%;
 }
 
 .login-logo {
@@ -140,141 +164,24 @@ body {
   cursor: pointer;
 }
 
-
-.auto-response.blocked {
-  background-color: #f0f0f0;
-  border: 1px dashed #999;
-  color: #666;
-}
-=======
-
-body {
-  font-family: 'Roboto', sans-serif;
+.login-button.secondary {
+  background-color: #ccc;
+  color: #333;
 }
 
-.message {
-  max-width: 75%;
-  padding: 10px;
-  border-radius: 15px;
-  font-size: 14px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.message-list {
-  flex: 1;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow-y: auto;
-}
-
-.message-input input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  outline: none;
-}
-
-.message-input button {
-  margin-left: 10px;
-  padding: 10px 16px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-
-.auto-response {
-  align-self: flex-start;
-  background-color: #cce5ff; /* celeste claro */
-  color: #003366;
-  font-style: italic;
-}
-
-
-.sent {
-  align-self: flex-end;
-  background-color: #dcf8c6; /* verde claro WhatsApp */
-  /* border-top-right-radius: 4px;  /* asimétrico */
-  /* color: black;*/
-}
-
-.received {
-  align-self: flex-start;
-  background-color: #ffffff;
-  border-top-left-radius: 4px;   /* asimétrico */
-  color: black;}
-
-  .chat-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* centra horizontal */
-    align-items: center;     /* centra vertical */
-    background-color: #f1f1f1;
-  }
-  
-  .chat-box {
-    width: 380px;
-    height: 90vh;
-    display: flex;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .main-layout {
     flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow: hidden;
   }
-  
 
+  .contact-screen {
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
 
-  /**********************************************************/
-  .login-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f3f4f6;
+  .chat-screen {
+    flex: 1;
+  }
 }
-
-.login-box {
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 300px;
-}
-
-.login-logo {
-  max-width: 120px;
-  margin-bottom: 20px;
-}
-
-.password-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.login-button {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
->>>>>>> 0ff36649e45e2d8268bb7e2042ab68802dbed2b6

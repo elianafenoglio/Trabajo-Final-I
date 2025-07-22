@@ -1,12 +1,32 @@
-# React + Vite
+OBJETIVO DEL FLUJO A PROBAR
+Ingreso al sistema con contraseña (LoginScreen.jsx)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Acceso a la lista de contactos (ContactScreen.jsx)
 
-Currently, two official plugins are available:
+Selección de un contacto → redirige a ChatScreen.jsx
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+En ChatScreen:
 
-## Expanding the ESLint configuration
+Se visualizan los mensajes correspondientes al contacto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Al enviar un mensaje, se genera una respuesta automática única por contacto
+
+🧩 COMPONENTES Y ESTADOS INVOLUCRADOS
+Componente	Estado/Propósito
+App.jsx	isAuthenticated, contactoSeleccionado, mensajesPorContacto
+LoginScreen	Autenticación y navegación a /contactos
+ContactScreen	Lista de contactos y selección
+ChatScreen	Muestra mensajes del contacto actual, envía mensajes nuevos
+MessageList.jsx	Renderiza los mensajes del contacto activo
+MessageInput.jsx	Input para escribir mensajes
+
+🔄 ¿Qué vas a ver al probarlo?
+Escribís "1234" en el login → te lleva a /contactos
+
+Elegís, por ejemplo, "Lucía" → te lleva a /chat
+
+Aparece "Chat con Lucía" y un área vacía de mensajes.
+
+Escribís un mensaje → aparece el mensaje enviado + una respuesta automática
+
+Si luego elegís "Pedro", verás solo la conversación con Pedro (vacía o con su propio hilo).
