@@ -2,7 +2,7 @@
 
 ## Descripción del proyecto
 
-Este proyecto consiste en una aplicación de mensajería instantánea estilo WhatsApp desarrollada en **React**. Permite al usuario autenticarse con una clave genérica, seleccionar un contacto de una lista y mantener una conversación básica con historial simulado.
+Este proyecto consiste en una aplicación de mensajería instantánea estilo WhatsApp desarrollada en **React**. Permite al usuario autenticarse con una clave genérica, seleccionar un contacto de una lista y mantener una conversación básica con historial simulado. ++++
 
 ##  Funcionalidades
 
