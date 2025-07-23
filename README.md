@@ -1,65 +1,75 @@
-OBJETIVO DEL FLUJO A PROBAR
-1) Ingreso al sistema con contraseña (LoginScreen.jsx)
+# Chat React App
 
-2) Acceso a la lista de contactos (ContactScreen.jsx)
+## Descripción del proyecto
 
-3) Selección de un contacto → redirige a ChatScreen.jsx
+Este proyecto consiste en una aplicación de mensajería instantánea estilo WhatsApp desarrollada en **React**. Permite al usuario autenticarse con una clave genérica, seleccionar un contacto de una lista y mantener una conversación básica con historial simulado.
 
-    3.1 -En ChatScreen:
+##  Funcionalidades
 
-    3.2 -Se visualizan los mensajes correspondientes al contacto
+- Inicio de sesión básico.
+- Visualización de una lista de contactos.
+- Vista de conversación con cada contacto.
+- Envío de mensajes que se renderizan en pantalla.
+- Interfaz **responsive**, adaptable entre resoluciones de 320px a 2000px.
+- Navegación entre rutas utilizando `react-router-dom`.
+- Implementación de **estados** con `useState` para manejar datos como:
+  - Contacto seleccionado.
+  - Historial de mensajes.
+  - Mensaje actual en escritura.
+- Uso de **componentes reutilizables** (`ContactItem`, `Chat`, `ContactList`, etc).
+- Estilos accesibles: colores contrastantes, tamaños de fuente legibles, disposición clara.
 
-    3.3 -Al enviar un mensaje, se genera una respuesta automática única por contacto
+## Tecnologías utilizadas
 
-4) COMPONENTES Y ESTADOS INVOLUCRADOS
-    Componente	Estado/Propósito
-    App.jsx:	isAuthenticated, contactoSeleccionado, mensajesPorContacto
-    LoginScreen:	Autenticación y navegación a /contactos
-    ContactScreen:	Lista de contactos y selección
-    ChatScreen:	Muestra mensajes del contacto actual, envía mensajes nuevos
-    MessageList.jsx:	Renderiza los mensajes del contacto activo
-    MessageInput.jsx:	Input para escribir mensajes
+- [React](https://reactjs.org/)
+- [React Router DOM](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/) 
+- HTML y CSS
 
-5) ¿Qué vas a ver al probarlo?
-        5.1 -Escribís "1234" en el login → te lleva a /contactos
+## Librerías y dependencias
 
-        5.2 - Elegís, por ejemplo, "Lucía" → te lleva a /chat
+- `react-router-dom` para el enrutamiento.
+- `useState` de React para manejo de estado.
 
-        5.3 - Aparece "Chat con Lucía" y un área vacía de mensajes.
+## Despliegue
 
-        5.4 - Escribís un mensaje → aparece el mensaje enviado + una respuesta automática
+La aplicación se encuentra desplegada en [Vercel](https://vercel.com/).  
+**Link al deploy:** [https://<tu-nombre-del-proyecto>.vercel.app](https://<tu-nombre-del-proyecto>.vercel.app)
 
-6) Si luego elegís "Pedro", verás solo la conversación con Pedro (vacía o con su propio hilo).
+## 📁 Estructura del proyecto
 
+```
+src/
+├── App.jsx
+├── main.jsx
+├── components/
+│   ├── ContactList.jsx
+│   ├── ContactItem.jsx
+│   ├── Chat.jsx
+├── screens/
+│   ├── LoginScreen.jsx
+│   ├── ContactScreen.jsx
+│   ├── ChatScreen.jsx
+├── style.css
+public/
+└── index.html
+```
 
-CONSIGNA TF
-El trabajo final de frontend consistirá en una aplicación web con los siguientes lineamientos:
+## 🤯 Dificultades enfrentadas
 
+- Configuración inicial de Git y Vercel.
+- Estilos responsivos para mantener la visualización clara en pantallas pequeñas.
+- Alineación correcta de los mensajes y el botón de enviar.
+- Sincronización entre selección de contacto y carga de historial de mensajes.
+- Eliminación de dependencias obsoletas (ej. Math.js) sin afectar el renderizado.
 
-Despliegue en vercel (o hosting de elección) funcional - LOGRADO
+## 📌 Consideraciones
 
-Código subido en github - LOGRADO
+- El sistema de login es estático y no contiene validación real.
+- No hay backend ni almacenamiento persistente, solo frontend.
+- Ideal como práctica de React, manejo de estados y routing.
 
-Readme.md con una descripción del desafío elegido, librerías usadas y dificultades presentadas a la hora de resolverse (opcional)
+## ✍️ Autor
 
-La página debe ser totalmente responsiva de las medidas 320px a 2000px
-
-La página debe tener estilos accesibles acordes a los vistos en clase (fondos claros con letras claras se considera inaccesible)
-
-La página debe estar desarrollada en React. LOGRADO
-
-La página debe contar con el uso de estados 
-
-Se valora el uso de contextos. (ESTO???)
-
-El enrutamiento de la página debe ser desarrollado con react-router-dom. LOGRADO
-
-Debe contar con el uso de al menos 1 formulario. LOGRADO
-
-Deben usarse componentes 
-
-Se debe contar con al menos 2 páginas en el flujo de la aplicación y debe usarse al menos en una los parámetros de búsqueda de react-router-dom 
-
-Se valora la calidad de código siguiendo los principios de la programación vistos en clase (DRY, YAGNI, KISS)
-
-Se pueden usar diseños o páginas ya creadas de guía para poder despreocuparse de los aspectos estéticos de la página desarrollada . LOGRADO
+Eliana E. Fenoglio  
+Argentina – 2025
