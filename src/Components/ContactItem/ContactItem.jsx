@@ -14,8 +14,8 @@ const ContactItem = ({ contact, onClick }) => {
         backgroundColor: '#f9f9f9'
       }}
     >
-      <img src={contact.avatar} alt={contact.name} width="100" />
-      <h3>{contact.name}</h3>
+      <img src={contact.avatar} alt={contact.name} width="50" />
+      <h2>{contact.name}</h2>
       <p><strong>Descripción:</strong> {contact.description}</p>
       <p><strong>Última conexión:</strong> {contact.last_connection}</p>
       <p><strong>Estado:</strong> {contact.connection_status}</p>
