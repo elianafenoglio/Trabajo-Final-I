@@ -1,10 +1,9 @@
+// MessageList.jsx
 import React from 'react';
 
 function MessageList({ messages, onDelete }) {
-  const handleDelete = (id, sender) => {
-    if (sender === 'auto') return;
-    const confirmar = window.confirm("¿Estás seguro de que querés eliminar este mensaje?");
-    if (confirmar) {
+  const handleDelete = (id) => {
+    if (window.confirm("¿Estás seguro de que querés eliminar este mensaje?")) {
       onDelete(id);
     }
   };
@@ -14,19 +13,22 @@ function MessageList({ messages, onDelete }) {
       {messages.map((msg) => (
         <div
           key={msg.id}
-          className={`mensaje ${msg.sender === 'yo' ? 'derecha' : 'izquierda'}`}
+          className={`message ${
+            msg.sender === 'yo'
+              ? 'sent'
+              : msg.sender === 'auto'
+              ? 'auto-response'
+              : 'received'
+          }`}
         >
-          {msg.sender === "auto" && <span> </span>}
           {msg.text}
-          {msg.sender !== 'auto' && (
-            <button
-              className="btn-eliminar"
-              onClick={() => handleDelete(msg.id, msg.sender)}
-              title="Eliminar mensaje"
-            >
-              🗑️
-            </button>
-          )}
+          <button
+            className="btn-eliminar"
+            onClick={() => handleDelete(msg.id)}
+            title="Eliminar mensaje"
+          >
+            🗑️
+          </button>
         </div>
       ))}
     </div>

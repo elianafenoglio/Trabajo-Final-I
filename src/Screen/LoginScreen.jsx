@@ -1,8 +1,6 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logow.png";
-import "../style.css";
+import "../style.css"; // Importa estilos
 
 function LoginScreen({ onLogin }) {
   const [password, setPassword] = useState("");
@@ -17,28 +15,29 @@ function LoginScreen({ onLogin }) {
     }
   };
 
-  const irAContactos = () => {
-    navigate("/contactos");
-  };
-
   return (
     <div className="login-wrapper">
       <div className="login-container">
         <div className="login-box">
-          <img src={logo} alt="Logo" className="login-logo" />
+          {/* Logo cargado desde /public */}
+          <img src="/logow.png" alt="Logo" className="login-logo" />
+
           <h2>Acceso al Chat</h2>
-          <input
-            type="password"
-            placeholder="Ingrese su contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="password-input"
-          />
-          <button onClick={handleSubmit} className="login-button">
-            Ingresar
-          </button>
+
+          <div className="login-form">
+            <input
+              type="password"
+              placeholder="Ingrese su contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="password-input"
+            />
+            <button onClick={handleSubmit} className="login-button">
+              Ingresar
+            </button>
+          </div>
+
           <hr style={{ margin: "1rem 0" }} />
-          
         </div>
       </div>
     </div>

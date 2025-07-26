@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ContactList from '../../Components/ContactList/ContactList';
 import { useNavigate } from 'react-router-dom';
@@ -8,21 +7,37 @@ const ContactScreen = ({ onSeleccionar }) => {
 
   const [contacts] = useState([
     {
-      id: "c1",
-      name: "Pedro",
-      description: "Solo vives una vez, pero no te olvides de mí",
-      avatar: "https://cdn-icons-png.flaticon.com/512/219/219983.png",
-      last_connection: "15:23",
+      id: "felipe",
+      name: "Felipe",
+      description: "Amante de la música clásica.",
+      avatar: "felipe.jpg",
+      last_connection: "10:45",
+      connection_status: "online",
+    },
+    {
+      id: "susanita",
+      name: "Susanita",
+      description: "Fan de la moda y el chisme.",
+      avatar: "susanita.jpg",
+      last_connection: "ayer",
       connection_status: "offline",
     },
     {
-      id: "c2",
-      name: "Juan",
-      description: "Ríe, ama y sueña",
-      avatar: "https://cdn-icons-png.flaticon.com/512/147/147144.png",
-      last_connection: "ahora",
+      id: "mafalda",
+      name: "Mafalda",
+      description: "La política me quita el sueño.",
+      avatar: "mafalda.jpg",
+      last_connection: "hace 5 min",
       connection_status: "online",
     },
+    {
+      id: "miguelito",
+      name: "Miguelito",
+      description: "Filosofando desde el recreo.",
+      avatar: "miguelito.jpg",
+      last_connection: "ahora",
+      connection_status: "online",
+    }
   ]);
 
   const handleSeleccion = (contacto) => {
@@ -30,8 +45,8 @@ const ContactScreen = ({ onSeleccionar }) => {
   };
 
   return (
-    <div className="contact-screen">
-      <h1>Lista de Contactos</h1>
+    <div className="contact-screen" style={{ width: "400px", minWidth: "350px" }}>
+      <h1 style={{ color: "#fff" }}>Lista de Contactos</h1>
       <ContactList contacts={contacts} onSeleccionar={handleSeleccion} />
     </div>
   );
