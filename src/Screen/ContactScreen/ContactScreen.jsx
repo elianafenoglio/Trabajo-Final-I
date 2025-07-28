@@ -77,7 +77,7 @@ const ContactScreen = ({ onSeleccionar }) => {
   };
 
   return (
-    <div className="contact-screen" style={{ width: "400px", minWidth: "350px", paddingTop: "0" }}>
+    <div className="contact-screen" >
       <ContactList contacts={contacts} onSeleccionar={handleSeleccion} />
     </div>
   );

@@ -1,11 +1,24 @@
-// ChatScreen.jsx
 import React from "react";
 import Chat from "../Chat";
 import "../style.css";
 
 const ChatScreen = ({ contacto, mensajes, onEnviarMensaje, onEliminarMensaje }) => {
+  const isMobile = window.innerWidth <= 600;
+
+  const volverAContactos = () => {
+    document.querySelector(".chat-screen").classList.remove("active");
+    document.querySelector(".contact-screen").classList.remove("hidden");
+  };
+
   return (
-    <div className="chat-screen">
+    <div className="chat-screen active">
+      {/* Botón volver para móviles */}
+      {isMobile && (
+        <button className="back-button" onClick={volverAContactos}>
+          ← Volver
+        </button>
+      )}
+
       <div className="chat-header">
         <img
           src={`/img/${contacto.avatar}`}

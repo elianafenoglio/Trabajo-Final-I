@@ -16,8 +16,14 @@ function App() {
 
   const handleSeleccionarContacto = (contacto) => {
     setContactoActivo(contacto);
+    // En móviles: ocultar contactos y mostrar chat
+    if (window.innerWidth <= 600) {
+      document.querySelector(".contact-screen").classList.add("hidden");
+      document.querySelector(".chat-screen").classList.add("active");
+    }
   };
 
+  
   const handleEnviarMensaje = (mensajeTexto) => {
     if (!contactoActivo) return;
 
@@ -49,8 +55,14 @@ function App() {
         [contactoId]: mensajesFiltrados,
       };
     });
+  
+  
   };
 
+
+
+
+  
   return (
     <Router>
       <Routes>

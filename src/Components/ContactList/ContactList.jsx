@@ -4,7 +4,6 @@ import ContactItem from "../ContactItem/ContactItem";
 const ContactList = ({ contacts, onSeleccionar }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Muestra todos los contactos si no se ingresó texto
   const filteredContacts = searchTerm.trim()
     ? contacts.filter(contact =>
         contact.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -15,7 +14,7 @@ const ContactList = ({ contacts, onSeleccionar }) => {
     <div className="contact-list">
       <h2 className="contact-title">Contactos</h2>
 
-      {/* Formulario de búsqueda */}
+      {/* Buscador */}
       <div className="search-bar">
         <span className="search-icon">🔍</span>
         <input
@@ -26,16 +25,19 @@ const ContactList = ({ contacts, onSeleccionar }) => {
         />
       </div>
 
-      {/* Lista de contactos filtrada (o completa si no hay búsqueda) */}
-      {filteredContacts.map((contact) => (
-        <ContactItem
-          key={contact.id}
-          contact={contact}
-          onClick={() => onSeleccionar(contact)}
-        />
-      ))}
+      {/* Lista scrolleable */}
+      <div className="contact-scroll">
+        {filteredContacts.map((contact) => (
+          <ContactItem
+            key={contact.id}
+            contact={contact}
+            onClick={() => onSeleccionar(contact)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
 export default ContactList;
+
