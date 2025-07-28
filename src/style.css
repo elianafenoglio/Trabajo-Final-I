@@ -22,14 +22,12 @@ body {
   padding: 10px;
 }
 
-
 .chat-screen {
   display: flex;
   flex-direction: column;
-  flex: 1;           /* o el valor que uses */
-  overflow: hidden;  /* ¡esto es importante! */
+  flex: 1;
+  overflow: hidden; /* evita doble scroll */
 }
-
 
 /* ===== CABECERA DEL CHAT ===== */
 .chat-header {
@@ -57,7 +55,6 @@ body {
 }
 
 /* ===== ÁREA DEL CHAT ===== */
-
 .chat-container {
   flex: 1;
   display: flex;
@@ -65,9 +62,6 @@ body {
   overflow: hidden;
   height: 100%;
 }
-
-
-
 
 /* ===== LISTA DE MENSAJES ===== */
 .message-list {
@@ -79,7 +73,6 @@ body {
   background-color: #1e1e1e;
   overflow-y: auto;
   overflow-x: hidden;
-  
 }
 
 .message-list::-webkit-scrollbar {
@@ -92,16 +85,6 @@ body {
 .message-list::-webkit-scrollbar-track {
   background-color: #f0f0f0;
 }
-
-.message-list {
-  flex: 1;
-  overflow-y: auto;   /* solo vertical */
-  overflow-x: hidden; /* evita scroll horizontal */
-  padding: 10px;
-}
-
-
-
 
 /* ===== MENSAJES ===== */
 .message,
@@ -204,12 +187,14 @@ body {
 .login-container,
 .login-box {
   background-color: #1e1e1e;
-  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   text-align: center;
-  max-width: 400px;
-  width: 100%;
+  max-width: 100%;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .login-box {
@@ -267,6 +252,59 @@ body {
   color: #333;
 }
 
+
+/* ===== CONTACT LIST ===== */
+.contact-list {
+  background-color: white;
+  flex: 1;
+  height: 100%;
+  padding: 10px;
+}
+
+.contact-title {
+  display: none;
+}
+
+/* ===== BUSCADOR ===== */
+
+.search-bar {
+  width: 100%;
+  padding: 4px 8px;          /* Menor padding */
+  font-size: 14px;           /* Tamaño de letra más chico */
+  height: 30px;              /* Alto explícito más reducido */
+  margin-bottom: 8px;
+  border: 2px solid #cccccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #000000;
+  outline: none;
+}
+
+
+.search-bar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px #007bff;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 14px;
+  background-color: transparent;
+  color: black;
+}
+
+.search-icon {
+  font-size: 1rem;
+  margin-right: 6px;
+  color: #555;
+}
+
+
+
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .main-layout {
@@ -285,42 +323,91 @@ body {
   }
 }
 
-/* ===== CONTACT LIST ===== */
-.contact-list {
-  background-color: white
-  flex: 1;
-  height: 100%;
-  padding: 10px;
+
+
+
+/* --- Responsividad mínima para pantallas pequeñas (320px a 600px) --- */
+@media screen and (max-width: 600px) {
+  .main-container {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .contact-screen, .chat-screen {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .contact-list {
+    padding: 0.5rem;
+    margin: 0;
+    overflow-y: auto;
+  }
+
+  .contact-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .search-bar {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.4rem;
+    border-radius: 4px;
+  }
+
+  .message-list {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  .message-input-form {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .message-input-form input {
+    width: 100%;
+  }
+
+  .message-input-form button {
+    width: 100%;
+  }
 }
 
-/* Título eliminado: margin-top eliminado */
-.contact-title {
-  display: none;
-}
+@media screen and (max-width: 320px) {
+  .login-container,
+  .login-box {
+    width: 95%;
+    padding: 1rem;
+  }
 
-/* ===== BUSCADOR ===== */
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 20px;
-  padding: 6px 10px;
-  margin: 10px 0 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
+  .login-form {
+    width: 100%;
+    max-width: 100%;
+  }
 
-.search-bar input {
-  border: none;
-  outline: none;
-  flex: 1;
-  padding: 6px 8px;
-  font-size: 14px;
-  background-color: transparent;
-  color: black;
-}
+  .password-input {
+    font-size: 14px;
+    padding: 10px;
+  }
 
-.search-icon {
-  font-size: 1rem;
-  margin-right: 6px;
-  color: #555;
+  .login-button {
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .login-logo {
+    max-width: 80px;
+  }
+
+  .login-box h2 {
+    font-size: 1rem;
+  }
 }

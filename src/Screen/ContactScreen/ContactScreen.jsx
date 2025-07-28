@@ -58,7 +58,7 @@ const ContactScreen = ({ onSeleccionar }) => {
       id: "mama",
       name: "Mama",
       description: "La vida irá hacia adelante, cuando te apartes de las personas que te llevan hacia atrás.",
-      avatar: "mama.jpg",
+      avatar: "madremafalda.png",
       last_connection: "ahora",
       connection_status: "offline",
     },
@@ -66,7 +66,7 @@ const ContactScreen = ({ onSeleccionar }) => {
       id: "papa",
       name: "Papa",
       description: "Y... no será que en este mundo hay cada vez más gente y menos personas?.",
-      avatar: "papa.jpg",
+      avatar: "padremafalda.png",
       last_connection: "ahora",
       connection_status: "online",
     }
