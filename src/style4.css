@@ -1,0 +1,249 @@
+/* GENERAL */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* LOGIN SCREEN */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #e8f0fe;
+}
+
+.login-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #45a049;
+}
+
+/* MAIN LAYOUT */
+.main-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* <== evita doble scroll */
+}
+
+/* CONTACT LIST */
+.contact-list {
+  width: 300px;
+  background-image: url('/fondoizz.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-list h2 {
+  color: black;
+  margin-bottom: 10px;
+}
+
+/* SEARCH BAR */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  margin-left: 8px;
+  width: 100%;
+  font-size: 14px;
+  background: transparent;
+}
+
+.search-icon {
+  color: #888;
+}
+
+/* CONTACT ITEM */
+.contact-item {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.contact-item:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.contact-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.contact-description {
+  font-size: 13px;
+  color: #666;
+}
+
+/* CHAT SCREEN */
+.chat-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #e5ddd5;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+.chat-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* MESSAGE LIST */
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+.message-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+/* MESSAGE ITEM */
+.message-item {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-item span {
+  background-color: #dcf8c6;
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* MESSAGE INPUT */
+.message-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #555;
+  padding: 10px;
+  color: white;
+}
+
+.message-input-container input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.message-input-container button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* ICONS LEFT/RIGHT OF INPUT */
+.message-input-container .icon-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-list {
+    width: 100px;
+  }
+
+  .chat-header {
+    font-size: 16px;
+  }
+
+  .message-input-container input {
+    font-size: 14px;
+  }
+}

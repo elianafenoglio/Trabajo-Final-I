@@ -37,6 +37,38 @@ const ContactScreen = ({ onSeleccionar }) => {
       avatar: "miguelito.jpg",
       last_connection: "ahora",
       connection_status: "online",
+    },
+    {
+      id: "manolo",
+      name: "Manolo",
+      description: "Si alguien golpea tu mejilla izquierda, ve y aprende Karate.",
+      avatar: "manolo.jpg",
+      last_connection: "ahora",
+      connection_status: "online",
+    },
+    {
+      id: "guille",
+      name: "Guille",
+      description: "He decidido enfrentar la realidad, así que apenas se ponga linda me avisan.",
+      avatar: "Guille.jpg",
+      last_connection: "ahora",
+      connection_status: "offline",
+    },
+    {
+      id: "mama",
+      name: "Mama",
+      description: "La vida irá hacia adelante, cuando te apartes de las personas que te llevan hacia atrás.",
+      avatar: "mama.jpg",
+      last_connection: "ahora",
+      connection_status: "offline",
+    },
+    {
+      id: "papa",
+      name: "Papa",
+      description: "Y... no será que en este mundo hay cada vez más gente y menos personas?.",
+      avatar: "papa.jpg",
+      last_connection: "ahora",
+      connection_status: "online",
     }
   ]);
 
@@ -45,8 +77,7 @@ const ContactScreen = ({ onSeleccionar }) => {
   };
 
   return (
-    <div className="contact-screen" style={{ width: "400px", minWidth: "350px" }}>
-      <h1 style={{ color: "#fff" }}>Lista de Contactos</h1>
+    <div className="contact-screen" style={{ width: "400px", minWidth: "350px", paddingTop: "0" }}>
       <ContactList contacts={contacts} onSeleccionar={handleSeleccion} />
     </div>
   );

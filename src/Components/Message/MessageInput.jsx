@@ -1,27 +1,36 @@
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function MessageInput({ onSend }) {
-  const [text, setText] = useState('');
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (text.trim()) {
-      onSend(text);
-      setText('');
+  const handleSend = () => {
+    if (message.trim()) {
+      onSend(message);
+      setMessage("");
     }
   };
 
   return (
-    <form className="message-input" onSubmit={handleSubmit}>
+    <div className="message-input">
+      {/* Ícono de adjuntar */}
+      <span className="icon" title="Adjuntar archivo">📎</span>
+
+      {/* Campo de texto */}
       <input
         type="text"
-        placeholder="Escribe un mensaje..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        placeholder="Escribe tu mensaje..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
-      <button type="submit">Enviar</button>
-    </form>
+
+      {/* Botón enviar */}
+      <button onClick={handleSend}>Enviar</button>
+
+      {/* Ícono de micrófono */}
+      <span className="icon" title="Mensaje de voz">🎤</span>
+    </div>
   );
 }
 
