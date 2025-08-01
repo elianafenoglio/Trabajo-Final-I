@@ -63,11 +63,10 @@ public/
 - Sincronización entre selección de contacto y carga de historial de mensajes.
 - Eliminación de dependencias obsoletas (ej. Math.js) sin afectar el renderizado.
 
-## 📌 Consideraciones
+##  Consideraciones
 
-- El sistema de login es estático y no contiene validación real.
-- No hay backend ni almacenamiento persistente, solo frontend.
-- Ideal como práctica de React, manejo de estados y routing.
+- El sistema de login es estático con clave ingreso 1234
+- 
 
 ## ✍️ Autor
 
